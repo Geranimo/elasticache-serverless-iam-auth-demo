@@ -1,4 +1,4 @@
-#This project is cloned from https://github.com/aws-samples/elasticache-iam-auth-demo-app/blob/main/README.md and refactored for testing elasticcache serverless.
+#This project is cloned from https://github.com/aws-samples/elasticache-iam-auth-demo-app/blob/main/README.md and refactored for testing elasticache serverless.
 
 # Elasticache IAM authentication demo application
 
