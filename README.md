@@ -42,6 +42,29 @@ which generates a .jar file, which you can then use to run you java application.
 NOTE:
 * your application needs to run in the same VPC as your ElastiCache replication group as well as security group to allow traffic between ElastiCache and EC2
 * replace the ```<host>``` with the cluster endpoint which you can fetch by looking into the cluster details section of your elasticache cluster. It could look something like ```elc-tutorial.lnvbt6.clustercfg.use1.cache.amazonaws.com```
+* The Ec2 instance should have an instance role with access to the redis cluster. Sample policy below
+
+```
+
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": "elasticache:Connect",
+            "Resource": [
+                "arn:aws:elasticache:*:11111111111:replicationgroup:*",
+                "arn:aws:elasticache:*:11111111111:serverlesscache:*",
+                "arn:aws:elasticache:*:11111111111:user:*"
+            ]
+        }
+    ]
+}
+
+``` 
+
+Using the demo app
 
 ```
 $ java -jar target/ElastiCacheIAMAuthDemoApp-1.0-SNAPSHOT.jar \
